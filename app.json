@@ -1,0 +1,19 @@
+{
+  "name": "Google Chrome on Heroku",
+  "description": "This app sets up headless chrome running on watir on heroku.",
+  "keywords": [
+    "scraping",
+    "headless chrome",
+    "watir"
+  ],
+  "repository": "https://github.com/jormon/minimal-chrome-on-heroku",
+  "stack": "heroku-16",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
