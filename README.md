@@ -1,4 +1,4 @@
-# minimal-chrome-on-heroku-xvfb
+# minimal-chrome-on-heroku
 Getting Chrome up and running on Heroku!
 
 This is a sister repo of [jormon/minimal-chrome-on-heroku-xvfb](https://github.com/jormon/minimal-chrome-on-heroku-xvfb) which operates on the cedar-14 stack using xvfb.
