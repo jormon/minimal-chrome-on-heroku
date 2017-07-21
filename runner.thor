@@ -46,7 +46,8 @@ class Runner < Thor
         "/app/vendor/bundle/bin/chromedriver"
     end
 
-    # for now, no headless :/
+    # headless!
+    # keyboard entry wont work until chromedriver 2.31 is released
     options.add_argument "window-size=1200x600"
     options.add_argument "headless"
     options.add_argument "disable-gpu"
