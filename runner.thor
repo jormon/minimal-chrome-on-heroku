@@ -1,4 +1,4 @@
-  require "watir"
+require "watir"
 require "fileutils"
 
 class Runner < Thor
