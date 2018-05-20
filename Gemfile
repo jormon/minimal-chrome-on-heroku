@@ -1,6 +1,6 @@
 source "https://rubygems.org"
-ruby "2.3.3"
+ruby File.read(".ruby-version").strip
 
-gem "watir"
 gem "chromedriver-helper"
 gem "thor"
+gem "watir"
