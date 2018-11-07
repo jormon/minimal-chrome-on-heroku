@@ -1,3 +1,4 @@
+require "chromedriver-helper"
 require "watir"
 require "fileutils"
 
