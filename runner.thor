@@ -39,12 +39,11 @@ class Runner < Thor
     # let Selenium know where to look for chrome if we have a hint from
     # heroku. chromedriver-helper & chrome seem to work out of the box on osx,
     # but not on heroku.
-    if chrome_bin = ENV["GOOGLE_CHROME_BIN"]
+    if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
       options.add_argument "no-sandbox"
       options.binary = chrome_bin
       # give a hint to here too
-      Selenium::WebDriver::Chrome.driver_path = \
-        "/app/vendor/bundle/bin/chromedriver"
+      Selenium::WebDriver::Chrome.driver_path = chrome_bin
     end
 
     # headless!
