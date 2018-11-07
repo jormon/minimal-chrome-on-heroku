@@ -42,8 +42,6 @@ class Runner < Thor
     if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
       options.add_argument "--no-sandbox"
       options.binary = chrome_bin
-      # give a hint to here too
-      Selenium::WebDriver::Chrome.driver_path = chrome_bin
     end
 
     # headless!
