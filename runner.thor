@@ -40,16 +40,16 @@ class Runner < Thor
     # heroku. chromedriver-helper & chrome seem to work out of the box on osx,
     # but not on heroku.
     if chrome_bin = ENV["GOOGLE_CHROME_SHIM"]
-      options.add_argument "no-sandbox"
+      options.add_argument "--no-sandbox"
       options.binary = chrome_bin
       # give a hint to here too
       Selenium::WebDriver::Chrome.driver_path = chrome_bin
     end
 
     # headless!
-    options.add_argument "window-size=1200x600"
-    options.add_argument "headless"
-    options.add_argument "disable-gpu"
+    options.add_argument "--window-size=1200x600"
+    options.add_argument "--headless"
+    options.add_argument "--disable-gpu"
 
     # make the browser
     Watir::Browser.new :chrome, options: options
