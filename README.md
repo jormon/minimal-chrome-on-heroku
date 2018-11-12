@@ -18,6 +18,15 @@ You can use the following button to deploy this to a test instance and check it 
 # Use
 Once you deploy, from your commandline, simply run the following command with heroku toolbelt:
 
-```
+```bash
 $ heroku run "thor runner:website"
+```
+
+# Downloads
+The package also includes a test script to show how saving downloads from chrome can run.  The thor task is `runner:download`, but I would advise invoking it like so:
+
+```bash
+$ heroku run bash
+[heroku]$ bundle exec thor runner:website
+[heroku]$ ls tmp/downloads # expect to see the rfc file here
 ```
