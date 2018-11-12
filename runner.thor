@@ -9,6 +9,19 @@ class Runner < Thor
     https://www.facebook.com/
   ).freeze
 
+  desc "download", "tests downloading a file from a website"
+  def download
+    browser = new_browser(downloads: true)
+
+    browser.goto "https://tools.ietf.org/html/rfc7231"
+
+    download_link = browser.a(css: "[title='PDF version of this document']")
+
+    download_link.click
+
+    sleep 5
+  end
+
   desc "website", "scrapes a website for its page title"
   def website
     browser = new_browser
@@ -27,7 +40,7 @@ class Runner < Thor
 
   private
 
-  def new_browser
+  def new_browser(downloads: false)
     options = Selenium::WebDriver::Chrome::Options.new
 
     # make a directory for chrome if it doesn't already exist
@@ -51,6 +64,21 @@ class Runner < Thor
     options.add_argument "--disable-gpu"
 
     # make the browser
-    Watir::Browser.new :chrome, options: options
+    browser = Watir::Browser.new :chrome, options: options
+
+    # setup downloading options
+    if downloads
+      # make download storage directory
+      downloads_dir = File.join Dir.pwd, %w(tmp downloads)
+      FileUtils.mkdir_p downloads_dir
+
+      # tell the bridge to use downloads
+      bridge = browser.driver.send :bridge
+      path = "/session/#{bridge.session_id}/chromium/send_command"
+      params = { behavior: "allow", downloadPath: downloads_dir }
+      bridge.http.call(:post, path, cmd: "Page.setDownloadBehavior",
+                                    params: params)
+    end
+    browser
   end
 end
