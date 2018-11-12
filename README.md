@@ -27,6 +27,6 @@ The package also includes a test script to show how saving downloads from chrome
 
 ```bash
 $ heroku run bash
-[heroku]$ bundle exec thor runner:website
+[heroku]$ bundle exec thor runner:download
 [heroku]$ ls tmp/downloads # expect to see the rfc file here
 ```
