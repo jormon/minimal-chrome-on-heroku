@@ -7,7 +7,7 @@
     "watir"
   ],
   "repository": "https://github.com/jormon/minimal-chrome-on-heroku",
-  "stack": "heroku-16",
+  "stack": "heroku-20",
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
